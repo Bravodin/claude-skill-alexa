@@ -43,6 +43,7 @@ SYSTEM_PROMPT = (
 #   - History only lives in the session; persist it to S3 (included in Alexa-hosted) to summarize past sessions.
 #   - Summary + send must fit in Alexa's ~8s window; use a progressive response ("enviando...") if needed.
 
+ANSWER_PREFIX = "Claudinho disse o seguinte: "
 KEY_FILE = os.path.join(os.path.dirname(__file__), "anthropic_key.txt")
 
 
@@ -102,7 +103,11 @@ def ask_claude(handler_input, question):
     })
     session["history"] = history
 
-    return _to_speech(answer) or "Hmm, não consegui pensar em uma resposta."
+    answer = _to_speech(answer)
+    if not answer:
+        return "Hmm, não consegui pensar em uma resposta."
+    # Spoken prefix so it's clear the answer came from Claude, not Alexa's own search.
+    return ANSWER_PREFIX + answer
 
 
 class LaunchRequestHandler(AbstractRequestHandler):

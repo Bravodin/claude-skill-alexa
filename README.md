@@ -136,6 +136,7 @@ No topo de `lambda/lambda_function.py`:
 | `CLAUDE_TIMEOUT_SECONDS` | `7.0` | A Alexa espera cerca de 8s pela resposta. |
 | `MAX_TURNS` | `6` | Trocas guardadas na sessão antes de recomeçar a conversa. |
 | `SYSTEM_PROMPT` | — | Personalidade e estilo das respostas (curtas, sem markdown). |
+| `ANSWER_PREFIX` | `"Claudinho disse o seguinte: "` | Frase falada antes de cada resposta do Claude, para diferenciar da busca da própria Alexa. Use `""` para desligar. |
 
 ## Custos e billing
 
