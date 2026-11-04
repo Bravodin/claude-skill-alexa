@@ -43,6 +43,12 @@ SYSTEM_PROMPT = (
 #   - History only lives in the session; persist it to S3 (included in Alexa-hosted) to summarize past sessions.
 #   - Summary + send must fit in Alexa's ~8s window; use a progressive response ("enviando...") if needed.
 
+# TODO: answer "quanto eu gastei" by voice.
+#   - Add up response.usage (input/output tokens) per call and persist the totals in S3.
+#   - New intent that speaks total tokens and estimated cost (MODEL price table).
+#   - Only counts this skill's usage; credit balance has no API, it's only shown in the Claude Console.
+#   - Real org-wide usage/cost needs the Admin API (sk-ant-admin key, organization accounts only).
+
 ANSWER_PREFIX = "Claudinho disse o seguinte: "
 KEY_FILE = os.path.join(os.path.dirname(__file__), "anthropic_key.txt")
 

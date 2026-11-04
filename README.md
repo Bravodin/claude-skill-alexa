@@ -182,3 +182,7 @@ Modelos maiores também demoram mais e podem estourar o limite de ~8s da Alexa.
   - ferramenta `enviar_email` para o Claude;
   - envio pelo Gmail com senha de app;
   - histórico guardado no S3 para resumir sessões anteriores.
+- **Perguntar o consumo por voz** ("quanto eu gastei"). Detalhes no `# TODO` em `lambda/lambda_function.py`:
+  - somar os tokens de cada resposta e guardar o total no S3;
+  - novo intent que fala os tokens usados e o custo estimado;
+  - conta só o uso da skill. O saldo de créditos não tem API e só aparece no Claude Console.
