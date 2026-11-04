@@ -125,7 +125,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Oi, aqui é o Assistente Chat. O que você quer saber?"
+        speak_output = "Claudinho quer saber como te ajudar hoje."
 
         return (
             handler_input.response_builder
