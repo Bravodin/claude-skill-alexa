@@ -118,8 +118,8 @@ Cuidados:
 
 1. Aba **Test** → mude de *Off* para **Development** e o idioma ao lado para **Portuguese (BR)**.
 2. Digite ou fale:
-   - `pergunte ao claudinho assistente qual a capital da Austrália`
-   - `pergunte ao claudinho assistente` → depois `me explica como funciona um arco-íris` (responde e fecha)
+   - `pergunte ao claudinho qual a capital da Austrália`
+   - `pergunte ao claudinho` → depois `me explica como funciona um arco-íris` (responde e fecha)
 3. Com a skill em *Development*, ela já funciona em qualquer Echo logado na mesma conta Amazon.
 
 ### Como fazer perguntas
@@ -172,7 +172,7 @@ Modelos maiores também demoram mais e podem estourar o limite de ~8s da Alexa.
 |---|---|
 | "A chave da API do Claude não está configurada corretamente." | `lambda/anthropic_key.txt` está faltando, vazio ou com a chave errada. |
 | "O Claude demorou demais para responder." | A resposta passou dos 7s. Faça uma pergunta mais curta. |
-| A Alexa diz que não entendeu e o **JSON Input** fica vazio | A requisição nem chegou à skill: confira o idioma do simulador (**Portuguese (BR)**) e se o **Build skill** terminou com o nome de invocação `claudinho assistente`. |
+| A Alexa diz que não entendeu e o **JSON Input** fica vazio | A requisição nem chegou à skill: confira o idioma do simulador (**Portuguese (BR)**) e se o **Build skill** terminou com o nome de invocação `claudinho`. |
 | "Não entendi…" | A frase não bateu com nenhuma amostra do `ChatIntent`. Comece com "me diga", "o que é" etc. |
 | "Tive um problema ao falar com o Claude." | Erro da API (ex.: sem créditos). Veja os logs em **Code → CloudWatch Logs**. |
 
