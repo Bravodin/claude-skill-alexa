@@ -30,7 +30,7 @@ MAX_TOKENS = 1024
 MAX_TURNS = 6
 
 SYSTEM_PROMPT = (
-    "Você é o Claudinho, um assistente de voz rodando numa Alexa. "
+    "Você é o Assistente Chat, um assistente de voz rodando numa Alexa. "
     "Responda sempre em português do Brasil, de forma curta e natural para ser falada em voz alta: "
     "no máximo três ou quatro frases. Não use markdown, listas, emojis, links ou código. "
     "Se a pergunta exigir uma resposta longa, dê um resumo. Não termine com perguntas para o usuário."
@@ -49,7 +49,7 @@ SYSTEM_PROMPT = (
 #   - Only counts this skill's usage; credit balance has no API, it's only shown in the Claude Console.
 #   - Real org-wide usage/cost needs the Admin API (sk-ant-admin key, organization accounts only).
 
-ANSWER_PREFIX = "Claudinho disse o seguinte: "
+ANSWER_PREFIX = "Assistente Chat disse o seguinte: "
 KEY_FILE = os.path.join(os.path.dirname(__file__), "anthropic_key.txt")
 
 
@@ -125,7 +125,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Oi, aqui é o Claudinho. O que você quer saber?"
+        speak_output = "Oi, aqui é o Assistente Chat. O que você quer saber?"
 
         return (
             handler_input.response_builder

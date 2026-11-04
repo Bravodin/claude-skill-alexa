@@ -1,4 +1,4 @@
-# Builds dist/claudinho-lambda.zip for the "Import Code" button in the Alexa Developer Console.
+# Builds dist/assistente-chat-lambda.zip for the "Import Code" button in the Alexa Developer Console.
 # Import Code requires a "lambda/" folder at the zip root.
 # The zip includes lambda/anthropic_key.txt, so never commit or share it (dist/ is gitignored).
 $ErrorActionPreference = "Stop"
@@ -8,7 +8,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $root = Split-Path -Parent $PSScriptRoot
 $lambda = Join-Path $root "lambda"
 $dist = Join-Path $root "dist"
-$zip = Join-Path $dist "claudinho-lambda.zip"
+$zip = Join-Path $dist "assistente-chat-lambda.zip"
 
 if (-not (Test-Path (Join-Path $lambda "anthropic_key.txt"))) {
     Write-Error "lambda/anthropic_key.txt not found. Create it with your Claude API key first (see README)."
