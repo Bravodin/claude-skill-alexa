@@ -19,16 +19,39 @@
           "samples": []
         },
         {
-          "slots": [],
-          "name": "HelloWorldIntent",
+          "name": "ChatIntent",
+          "slots": [
+            {
+              "name": "pergunta",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
           "samples": [
-            "olá",
-            "como vai você",
-            "diga oi mundo",
-            "diga oi",
-            "oi",
-            "diga olá mundo",
-            "diga olá"
+            "me diga {pergunta}",
+            "me fala {pergunta}",
+            "me explica {pergunta}",
+            "me conta {pergunta}",
+            "pergunta {pergunta}",
+            "quero saber {pergunta}",
+            "eu quero saber {pergunta}",
+            "o que é {pergunta}",
+            "o que são {pergunta}",
+            "o que {pergunta}",
+            "qual {pergunta}",
+            "quais {pergunta}",
+            "quem {pergunta}",
+            "quando {pergunta}",
+            "onde {pergunta}",
+            "como {pergunta}",
+            "por que {pergunta}",
+            "quanto {pergunta}",
+            "quantos {pergunta}",
+            "você sabe {pergunta}",
+            "pode {pergunta}",
+            "escreva {pergunta}",
+            "sugira {pergunta}",
+            "faça {pergunta}",
+            "e {pergunta}"
           ]
         },
         {
@@ -37,7 +60,7 @@
         }
       ],
       "types": [],
-      "invocationName": "change me"
+      "invocationName": "claudinho"
     }
   }
 }

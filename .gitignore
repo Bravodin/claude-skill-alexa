@@ -1,0 +1,4 @@
+# Anthropic API key - never commit to GitHub
+lambda/anthropic_key.txt
+.env
+__pycache__/
