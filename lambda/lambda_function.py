@@ -33,7 +33,7 @@ SYSTEM_PROMPT = (
     "Você é o Claudinho, um assistente de voz rodando numa Alexa. "
     "Responda sempre em português do Brasil, de forma curta e natural para ser falada em voz alta: "
     "no máximo três ou quatro frases. Não use markdown, listas, emojis, links ou código. "
-    "Se a pergunta exigir uma resposta longa, dê um resumo e ofereça continuar."
+    "Se a pergunta exigir uma resposta longa, dê um resumo. Não termine com perguntas para o usuário."
 )
 
 # TODO: send a summary of the conversation by email ("me manda por email o resumo").
@@ -43,7 +43,6 @@ SYSTEM_PROMPT = (
 #   - History only lives in the session; persist it to S3 (included in Alexa-hosted) to summarize past sessions.
 #   - Summary + send must fit in Alexa's ~8s window; use a progressive response ("enviando...") if needed.
 
-REPROMPT = "Quer perguntar mais alguma coisa?"
 KEY_FILE = os.path.join(os.path.dirname(__file__), "anthropic_key.txt")
 
 
@@ -155,10 +154,11 @@ class ChatIntentHandler(AbstractRequestHandler):
             logger.error("Could not reach Claude API", exc_info=True)
             speak_output = "Não consegui me conectar ao Claude. Tente de novo."
 
+        # No reprompt: answer and end the session, like built-in Alexa commands.
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(REPROMPT)
+                .set_should_end_session(True)
                 .response
         )
 

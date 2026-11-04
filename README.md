@@ -7,7 +7,7 @@ Alexa, pergunte ao claudinho assistente o que é um buraco negro
 Alexa, pergunte ao claudinho assistente   (abre a skill e espera a pergunta)
 ```
 
-A skill lembra das últimas 6 trocas enquanto a sessão estiver aberta, então dá para fazer perguntas de continuação ("e por que isso acontece?").
+Cada pergunta é respondida e a skill fecha em seguida, como os comandos nativos da Alexa ("ligar a TV", "tocar no Spotify").
 
 ## Estrutura
 
@@ -119,7 +119,7 @@ Cuidados:
 1. Aba **Test** → mude de *Off* para **Development** e o idioma ao lado para **Portuguese (BR)**.
 2. Digite ou fale:
    - `pergunte ao claudinho assistente qual a capital da Austrália`
-   - `pergunte ao claudinho assistente` → depois `me explica como funciona um arco-íris`
+   - `pergunte ao claudinho assistente` → depois `me explica como funciona um arco-íris` (responde e fecha)
 3. Com a skill em *Development*, ela já funciona em qualquer Echo logado na mesma conta Amazon.
 
 ### Como fazer perguntas
