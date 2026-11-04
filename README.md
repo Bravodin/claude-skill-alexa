@@ -14,7 +14,7 @@ Cada pergunta é respondida e a skill fecha em seguida, como os comandos nativos
 | Caminho | O que é |
 |---|---|
 | `skill.json` | Manifesto da skill (nome, locale, endpoints do Lambda hospedado) |
-| `interactionModels/custom/pt-BR.json` | Modelo de interação: invocação `claudinho assistente` e o `ChatIntent` |
+| `interactionModels/custom/pt-BR.json` | Modelo de interação: invocação `claudinho` e o `ChatIntent` |
 | `lambda/lambda_function.py` | Código da skill (ASK SDK + Anthropic SDK) |
 | `lambda/requirements.txt` | Dependências Python (`ask-sdk-core`, `anthropic`, `boto3`) |
 | `lambda/anthropic_key.txt` | **Sua chave do Claude — não vem no repositório** (está no `.gitignore`) |
