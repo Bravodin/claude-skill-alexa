@@ -77,7 +77,7 @@ Envia o código direto do seu PC, já com a chave.
    ```powershell
    .\scripts\build-zip.ps1
    ```
-   Isso cria `dist/claudinho-lambda.zip` com `lambda_function.py`, `utils.py`, `requirements.txt` e `anthropic_key.txt`.
+   Isso cria `dist/claudinho-lambda.zip` com uma pasta `lambda/` na raiz, contendo `lambda_function.py`, `utils.py`, `requirements.txt` e `anthropic_key.txt`. O Import Code exige essa pasta `lambda/` na raiz do zip.
 3. No console da Alexa, aba **Code** → **Import Code** → escolha `dist/claudinho-lambda.zip`.
 4. Confira se os 4 arquivos apareceram dentro da pasta `lambda`.
 5. Clique em **Deploy**. O primeiro deploy instala o pacote `anthropic` e leva um pouco mais.
