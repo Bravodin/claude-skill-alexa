@@ -18,6 +18,7 @@ A skill lembra das últimas 6 trocas enquanto a sessão estiver aberta, então d
 | `lambda/lambda_function.py` | Código da skill (ASK SDK + Anthropic SDK) |
 | `lambda/requirements.txt` | Dependências Python (`ask-sdk-core`, `anthropic`, `boto3`) |
 | `lambda/anthropic_key.txt` | **Sua chave do Claude — não vem no repositório** (está no `.gitignore`) |
+| `scripts/build-zip.ps1` | Gera `dist/claudinho-lambda.zip` para o botão **Import Code** do console |
 
 ---
 
@@ -67,14 +68,51 @@ Escolha uma das opções:
 2. Cole o conteúdo de `interactionModels/custom/pt-BR.json`.
 3. Clique em **Save** e depois em **Build skill**.
 
-### Código do Lambda
+### Código do Lambda — opção A: Import Code (recomendado)
+
+Envia o código direto do seu PC, já com a chave.
+
+1. Crie o arquivo `lambda/anthropic_key.txt` no seu PC e cole **só a chave**, sem aspas e sem espaços.
+2. No terminal do VS Code (PowerShell), na pasta do projeto, gere o zip:
+   ```powershell
+   .\scripts\build-zip.ps1
+   ```
+   Isso cria `dist/claudinho-lambda.zip` com `lambda_function.py`, `utils.py`, `requirements.txt` e `anthropic_key.txt`.
+3. No console da Alexa, aba **Code** → **Import Code** → escolha `dist/claudinho-lambda.zip`.
+4. Confira se os 4 arquivos apareceram dentro da pasta `lambda`.
+5. Clique em **Deploy**. O primeiro deploy instala o pacote `anthropic` e leva um pouco mais.
+
+Repita os passos 2 a 5 sempre que alterar o código.
+
+> Se o PowerShell bloquear o script ("execution of scripts is disabled"), rode `powershell -ExecutionPolicy Bypass -File .\scripts\build-zip.ps1`.
+
+### Código do Lambda — opção B: manual pelo editor do console
+
 1. Aba **Code**.
 2. Substitua `lambda/lambda_function.py` e `lambda/requirements.txt` pelos deste repositório.
 3. Clique com o botão direito na pasta `lambda` → **Create File** → `lambda/anthropic_key.txt`.
 4. Cole **só a chave** no arquivo, sem aspas e sem espaços.
-5. Clique em **Save** e depois em **Deploy**. O primeiro deploy instala o pacote `anthropic` e leva um pouco mais.
+5. Clique em **Save** e depois em **Deploy**.
+
+> O **Import Code** envia só o código. O modelo de interação (`pt-BR.json`) continua indo pelo **Build → JSON Editor**, e só precisa ser colado de novo quando você mudar as frases ou o nome de invocação.
 
 > O código também aceita a chave pela variável de ambiente `ANTHROPIC_API_KEY`, mas skills Alexa-hosted não permitem configurar variáveis de ambiente. Por isso usamos o arquivo.
+
+### A chave fica exposta?
+
+Não. O código de uma skill Alexa-hosted fica num repositório **privado** da Amazon.
+
+| Consegue ver o código (e a chave)? | |
+|---|---|
+| Você, na sua conta de desenvolvedor | Sim |
+| Colaboradores que você adicionar à skill no console | Sim |
+| Quem usa a skill pelo Echo ou pelo app da Alexa | **Não**, só recebe as respostas |
+| Revisores da Amazon na certificação | **Não**, eles testam a skill, não leem o código |
+
+Cuidados:
+- A chave não vai para o GitHub: `lambda/anthropic_key.txt` e `dist/` estão no `.gitignore`.
+- **Não compartilhe o `dist/claudinho-lambda.zip`**, porque ele contém a chave.
+- Se a chave vazar, apague-a no Claude Console (**API Keys**) e crie outra.
 
 ## 5. Testar
 

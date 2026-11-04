@@ -2,3 +2,4 @@
 lambda/anthropic_key.txt
 .env
 __pycache__/
+dist/
