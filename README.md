@@ -3,8 +3,8 @@
 Skill Alexa (pt-BR) que envia o que você fala para o [Claude](https://www.anthropic.com/claude) e lê a resposta em voz alta.
 
 ```
-Alexa, pergunte ao claudinho assistente o que é um buraco negro
-Alexa, pergunte ao claudinho assistente   (abre a skill e espera a pergunta)
+Alexa, pergunte ao claudinho  o que é um buraco negro
+Alexa, pergunte ao claudinho  (abre a skill e espera a pergunta)
 ```
 
 Cada pergunta é respondida e a skill fecha em seguida, como os comandos nativos da Alexa ("ligar a TV", "tocar no Spotify").
