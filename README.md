@@ -3,8 +3,8 @@
 Skill Alexa (pt-BR) que envia o que você fala para o [Claude](https://www.anthropic.com/claude) e lê a resposta em voz alta.
 
 ```
-Alexa, pergunte ao claudinho o que é um buraco negro
-Alexa, pergunte ao claudinho          (abre a skill e espera a pergunta)
+Alexa, pergunte ao claudinho assistente o que é um buraco negro
+Alexa, pergunte ao claudinho assistente   (abre a skill e espera a pergunta)
 ```
 
 A skill lembra das últimas 6 trocas enquanto a sessão estiver aberta, então dá para fazer perguntas de continuação ("e por que isso acontece?").
@@ -14,7 +14,7 @@ A skill lembra das últimas 6 trocas enquanto a sessão estiver aberta, então d
 | Caminho | O que é |
 |---|---|
 | `skill.json` | Manifesto da skill (nome, locale, endpoints do Lambda hospedado) |
-| `interactionModels/custom/pt-BR.json` | Modelo de interação: invocação `claudinho` e o `ChatIntent` |
+| `interactionModels/custom/pt-BR.json` | Modelo de interação: invocação `claudinho assistente` e o `ChatIntent` |
 | `lambda/lambda_function.py` | Código da skill (ASK SDK + Anthropic SDK) |
 | `lambda/requirements.txt` | Dependências Python (`ask-sdk-core`, `anthropic`, `boto3`) |
 | `lambda/anthropic_key.txt` | **Sua chave do Claude — não vem no repositório** (está no `.gitignore`) |
@@ -116,10 +116,10 @@ Cuidados:
 
 ## 5. Testar
 
-1. Aba **Test** → mude de *Off* para **Development**.
+1. Aba **Test** → mude de *Off* para **Development** e o idioma ao lado para **Portuguese (BR)**.
 2. Digite ou fale:
-   - `pergunte ao claudinho qual a capital da Austrália`
-   - `pergunte ao claudinho` → depois `me explica como funciona um arco-íris`
+   - `pergunte ao claudinho assistente qual a capital da Austrália`
+   - `pergunte ao claudinho assistente` → depois `me explica como funciona um arco-íris`
 3. Com a skill em *Development*, ela já funciona em qualquer Echo logado na mesma conta Amazon.
 
 ### Como fazer perguntas
@@ -171,6 +171,7 @@ Modelos maiores também demoram mais e podem estourar o limite de ~8s da Alexa.
 |---|---|
 | "A chave da API do Claude não está configurada corretamente." | `lambda/anthropic_key.txt` está faltando, vazio ou com a chave errada. |
 | "O Claude demorou demais para responder." | A resposta passou dos 7s. Faça uma pergunta mais curta. |
+| A Alexa diz que não entendeu e o **JSON Input** fica vazio | A requisição nem chegou à skill: confira o idioma do simulador (**Portuguese (BR)**) e se o **Build skill** terminou com o nome de invocação `claudinho assistente`. |
 | "Não entendi…" | A frase não bateu com nenhuma amostra do `ChatIntent`. Comece com "me diga", "o que é" etc. |
 | "Tive um problema ao falar com o Claude." | Erro da API (ex.: sem créditos). Veja os logs em **Code → CloudWatch Logs**. |
 
