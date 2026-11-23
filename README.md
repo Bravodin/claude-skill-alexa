@@ -9,6 +9,12 @@ Alexa, pergunte ao assistente chat (abre a skill e espera a pergunta)
 
 Cada pergunta é respondida e a skill fecha em seguida, como os comandos nativos da Alexa ("ligar a TV", "tocar no Spotify").
 
+## Arquitetura
+
+![Arquitetura da skill Assistente Chat](screenshot/arquitetura.png)
+
+Fonte editável: [`screenshot/arquitetura.svg`](screenshot/arquitetura.svg).
+
 ## Estrutura
 
 | Caminho | O que é |
